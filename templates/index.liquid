@@ -54,10 +54,22 @@
 {% endif %}
 
 
-{% form 'currency' %}
-    {{ form | currency_selector }}
-  {% endform %}
+{% comment %} Range {% endcomment %}
 
-  {% form 'customer_address', customer.new_address %}
-    uttara, dhaka
-  {% endform %}
+{% for i in (3..8)%}
+    {{i}}
+{% endfor%}
+
+</br>
+
+{% assign lower_limit = 12 %}
+{% assign upper_limit = 23 %}
+
+{%for i in (lower_limit..upper_limit)%}
+    {{i | times: 2}}
+  
+    {{i | minus: 2}}
+
+    {{i | divided_by: 2}}
+
+{%endfor%}

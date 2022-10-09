@@ -1,0 +1,63 @@
+
+<h1>e-Tech BD</h1>
+
+<img width="200" src="{{ 'monitor.png' | asset_url}}" />
+
+{% comment %} {% assign product = [{"title": "Health potion", "available": true}]  %} {% endcomment %}
+
+{% comment %} 
+{% capture product %}
+"title": "Health potion", "available": true
+{% endcapture %} {% endcomment %}
+
+
+{%assign name = "Shamim Reza" %}
+{%assign time = "evening" %}
+
+
+{% assign numbers = '1, 2, 3, 4, 5, 6, 7' | split: "," %}
+{% assign fruits = 'orange, apple, peach' | split: "," | slice: 1, 3 %}
+
+{% comment %} get array length {% endcomment %}
+{{fruits }}
+{{numbers[2] }}
+
+{% case time%}
+    {% when "morning" %}
+        <h2>good morning tanisha</h2>
+    {% when "evening" %}
+        <h2>good evining</h2>
+    {% when "night" %}
+        <h2>good night</h2>
+    {% else %}
+        <h2>sleeping</h2>
+{% endcase %}
+
+{% form 'cart', cart %}
+    form content
+  {% endform %}
+
+<br>
+
+{% for item in numbers | limit: 4 %}
+    {{item}} <br>
+{%endfor%}
+
+<!-- this is comment -->
+
+<!-- Liquid Tag -->
+
+{% if product.available %}
+<h1>Product is Available</h1>
+{% else %}
+<p>Sold Out</p>
+{% endif %}
+
+
+{% form 'currency' %}
+    {{ form | currency_selector }}
+  {% endform %}
+
+  {% form 'customer_address', customer.new_address %}
+    uttara, dhaka
+  {% endform %}
